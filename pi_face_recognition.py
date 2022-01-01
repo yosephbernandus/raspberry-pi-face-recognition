@@ -113,23 +113,23 @@ while True:
 
 		# cv2.imwrite('only_face.png', frame)
 
-		# if name == "Unknown":
-			# Pilihan Terakhir
-			# time.sleep(3)
+		if name == "Unknown":
+			# Unknown
+			time.sleep(3)
 
-			# message = "Object Not Found" + name
-			# msg.attach(MIMEText(message, 'plain'))
+			message = "Object Not Found" + name
+			msg.attach(MIMEText(message, 'plain'))
 
-			# fp = open('only_face.png', 'rb')
-			# msgImage = MIMEImage(fp.read())
-			# msg.attach(msgImage)
-			# fp.close()
+			fp = open('only_face.png', 'rb')
+			msgImage = MIMEImage(fp.read())
+			msg.attach(msgImage)
+			fp.close()
 
-			# server = smtplib.SMTP('smtp.gmail.com: 587')
-			# server.starttls()
-			# server.login(msg['From'], password)
-			# server.sendmail(msg['From'], msg['To'], msg.as_string())
-			# server.quit()
+			server = smtplib.SMTP('smtp.gmail.com: 587')
+			server.starttls()
+			server.login(msg['From'], password)
+			server.sendmail(msg['From'], msg['To'], msg.as_string())
+			server.quit()
 
 		# check to see if we have found a match
 		if True in matches:
@@ -150,24 +150,24 @@ while True:
 			# will select first entry in the dictionary)
 			name = max(counts, key=counts.get)
 			
-			# # Save Image
-			# cv2.imwrite('only_face.png', frame)
+			# Save Image
+			cv2.imwrite('only_face.png', frame)
 
-			# message = "Nama :" + name
-			# msg.attach(MIMEText(message, 'plain'))
+			message = "Nama :" + name
+			msg.attach(MIMEText(message, 'plain'))
 
-			# fp = open('only_face.png', 'rb')
-			# msgImage = MIMEImage(fp.read())
-			# fp.close()
+			fp = open('only_face.png', 'rb')
+			msgImage = MIMEImage(fp.read())
+			fp.close()
 
-			# msg.attach(msgImage)
+			msg.attach(msgImage)
 
-			# # send the message via the server
-			# server = smtplib.SMTP('smtp.gmail.com: 587')
-			# server.starttls()
-			# server.login(msg['From'], password)
-			# server.sendmail(msg['From'], msg['To'], msg.as_string())
-			# server.quit()
+			# send the message via the server
+			server = smtplib.SMTP('smtp.gmail.com: 587')
+			server.starttls()
+			server.login(msg['From'], password)
+			server.sendmail(msg['From'], msg['To'], msg.as_string())
+			server.quit()
 
 		# update the list of names
 		names.append(name)		
